@@ -133,3 +133,8 @@ ju., 17 de abr. de 2025 19:34:55:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 7c90018
+ju., 17 de abr. de 2025 19:37:07: 
+ hashmap.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
+ tests:  0|0
+02d866c

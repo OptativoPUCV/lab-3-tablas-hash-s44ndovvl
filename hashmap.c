@@ -48,7 +48,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 
     long pos = hash(key, map->capacity);
     
-    while(map->buckets[pos] != NULL && map->buckets[pos] != -1) {
+    while(map->buckets[pos] != NULL && map->buckets[pos]->key != NULL) {
         pos += 1;
         pos %= map->capacity; 
     }
@@ -99,11 +99,7 @@ void eraseMap(HashMap * map,  char * key) {
         if(map->current == pos) return;
     }
 
-    free(map->buckets[pos]->key);
-    free(map->buckets[pos]->value);
-    free(map->buckets[pos]);
-
-    map->buckets[pos] = (Pair *) -1;
+    map->buckets[pos]->key = NULL;
     map->size -= 1;
     map->current = pos;
 }
