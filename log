@@ -110,3 +110,21 @@ ju., 17 de abr. de 2025 19:27:14:
  tests:  8|3
 total_score: 40/70
 ce09dbe
+ju., 17 de abr. de 2025 19:33:57: 
+ hashmap.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+Compilation failed
+In file included from test.c:4:
+hashmap.c: In function 'insertMap':
+hashmap.c:51:58: warning: comparison between pointer and integer
+   51 |     while(map->buckets[pos] != NULL && map->buckets[pos] != -1) {
+      |                                                          ^~
+hashmap.c: In function 'eraseMap':
+hashmap.c:106:23: error: assignment to 'Pair *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  106 |     map->buckets[pos] = -1;
+      |                       ^
+test.c: At top level:
+test.c:8:8: warning: '_strdup' redeclared without dllimport attribute: previous dllimport ignored [-Wattributes]
+    8 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+84c3601
