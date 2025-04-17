@@ -50,10 +50,25 @@ void enlarge(HashMap * map) {
 
 }
 
+/*Pair ** buckets;
+    long size; //cantidad de datos/pairs en la tabla
+    long capacity; //capacidad de la tabla
+    long current; //indice del ultimo dato accedido*/
+
 
 HashMap * createMap(long capacity) {
 
-    return NULL;
+    HashMap * map = (HashMap *)malloc(sizeof(HashMap));
+    if(map == NULL) exit(EXIT_FAILURE); 
+    
+    map->buckets = (Pair **) calloc (capacity,sizeof(Pair *));
+    if(map->buckets == NULL) exit(EXIT_FAILURE); 
+
+    map->capacity = capacity;
+    map->size = 0;
+
+    map->current = -1;
+    return map;
 }
 
 void eraseMap(HashMap * map,  char * key) {    
