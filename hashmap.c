@@ -47,10 +47,16 @@ void insertMap(HashMap * map, char * key, void * value) {
     }
 
     long pos = hash(key, map->capacity);
+    map->current = pos;
     
-    while(map->buckets[pos] != NULL && map->buckets[pos]->key != NULL) {
+    while(map->buckets[pos] != NULL && map->buckets[pos]->key != NULL && is_equal(map->buckets[pos]->key, key) == 0) {
         pos += 1;
-        pos %= map->capacity; 
+        pos %= map->capacity;
+
+        if(map->current == pos) {
+            printf("mapa lleno\n");
+            return;
+        }
     }
 
     map->buckets[pos] = createPair(key, value);
