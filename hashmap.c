@@ -103,7 +103,7 @@ void eraseMap(HashMap * map,  char * key) {
     free(map->buckets[pos]->value);
     free(map->buckets[pos]);
 
-    map->buckets[pos] = -1;
+    map->buckets[pos] = (Pair *) -1;
     map->size -= 1;
     map->current = pos;
 }
