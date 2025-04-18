@@ -171,42 +171,19 @@ Pair * nextMap(HashMap * map) {
     long siguiente = map->current + 1;
 
     // Recorre la tabla cíclicamente
-    while (siguiente != map->current) {
+    while (siguiente != map->capacity) {
     
         // Si encuentra un bucket válido, actualiza current y lo retorna
-        if (map->buckets[siguiente] != NULL) {
+        if (map->buckets[siguiente] != NULL && map->buckets[siguiente]->key != NULL) {
+            
             map->current = siguiente;
-
-            if(map->buckets[siguiente]->key == NULL) return NULL;
             return map->buckets[siguiente];
         }
 
         siguiente++;
-
-        if (siguiente == map->capacity) {
-            map->current = -1;
-            return NULL;
-        }
     }
 
     // Si no encuentra un par válido, retorna NULL
+    map->current = -1;
     return NULL;
-    //siguiente %= map->capacity;
-    /*while(map->buckets[siguiente] == NULL || map->buckets[siguiente]->key == NULL){
-        
-        siguiente += 1;
-        siguiente %= map->capacity;
-        if(siguiente == map->current + 1) 
-        {
-            map->current = map->current + 1;
-            return NULL;
-        }
-
-    }
-    map->current = siguiente;
-    if(map->buckets[siguiente] == NULL || map->buckets[siguiente]->key == NULL) {
-        map->current = siguiente;
-        return NULL;
-    }
-    return map->buckets[siguiente];*/
 }
