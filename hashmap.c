@@ -172,9 +172,7 @@ Pair * nextMap(HashMap * map) {
 
     // Recorre la tabla cíclicamente
     while (siguiente != map->current) {
-        
-        siguiente %= map->capacity;
-
+    
         // Si encuentra un bucket válido, actualiza current y lo retorna
         if (map->buckets[siguiente] != NULL) {
             map->current = siguiente;
@@ -185,7 +183,7 @@ Pair * nextMap(HashMap * map) {
 
         siguiente++;
 
-        if (siguiente == map->current + 1) {
+        if (siguiente == map->capacity) {
             map->current = -1;
             return NULL;
         }
