@@ -185,6 +185,7 @@ Pair * nextMap(HashMap * map) {
     }
 
     // Si no encuentra un par válido, retorna NULL
+    map->current = -1;
     return NULL;
     //siguiente %= map->capacity;
     /*while(map->buckets[siguiente] == NULL || map->buckets[siguiente]->key == NULL){
