@@ -182,6 +182,11 @@ Pair * nextMap(HashMap * map) {
         }
 
         siguiente++;
+
+        if (siguiente == map->current + 1) {
+            map->current = -1;
+            return NULL;
+        }
     }
 
     // Si no encuentra un par válido, retorna NULL
