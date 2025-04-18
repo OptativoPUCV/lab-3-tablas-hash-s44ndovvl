@@ -183,5 +183,9 @@ Pair * nextMap(HashMap * map) {
 
     }*/
     map->current = siguiente;
+    if(map->buckets[siguiente] == NULL || map->buckets[siguiente]->key == NULL) {
+        map->current = -1;
+        return NULL;
+    }
     return map->buckets[siguiente];
 }
