@@ -156,6 +156,7 @@ Pair * nextMap(HashMap * map) {
     while(map->buckets[siguiente] == NULL || map->buckets[siguiente]->key == NULL){
         
         siguiente += 1;
+        siguiente %= map->capacity;
         if(siguiente == map->current) 
         {
             return map->buckets[siguiente];
