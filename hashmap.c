@@ -168,13 +168,16 @@ Pair * firstMap(HashMap * map) {
 }
 
 Pair * nextMap(HashMap * map) {
-    for (long i = map->current + 1; i < map->size; i++) {
+    long i = map->current + 1;
+
+    while (i < map->size) {
         if (map->buckets[i] != NULL) {
             map->current = i;
             return map->buckets[i];
         }
+        i++;
     }
-    // Si no hay más elementos válidos
+
     return NULL;
 
     /*long siguiente = map->current + 1;
