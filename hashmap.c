@@ -136,8 +136,14 @@ Pair * searchMap(HashMap * map,  char * key) {
 }
 
 Pair * firstMap(HashMap * map) {
+    long primero = 0;
+    while(map->buckets[primero] == NULL) {
+        
+        primero += 1;
+        if(primero == map->capacity) return NULL;
 
-    return NULL;
+    }
+    return map->buckets[primero];
 }
 
 Pair * nextMap(HashMap * map) {
