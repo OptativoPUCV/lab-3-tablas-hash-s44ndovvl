@@ -168,19 +168,8 @@ Pair * firstMap(HashMap * map) {
 }
 
 Pair * nextMap(HashMap * map) {
-    long i = map->current + 1;
 
-    while (i < map->size) {
-        if (map->buckets[i] != NULL) {
-            map->current = i;
-            return map->buckets[i];
-        }
-        i++;
-    }
-
-    return NULL;
-
-    /*long siguiente = map->current + 1;
+    long siguiente = map->current + 1;
     siguiente %= map->capacity;
     /*while(map->buckets[siguiente] == NULL || map->buckets[siguiente]->key == NULL){
         
@@ -192,7 +181,7 @@ Pair * nextMap(HashMap * map) {
             return NULL;
         }
 
-    }
+    }*/
     map->current = siguiente;
-    return map->buckets[siguiente];*/
+    return map->buckets[siguiente];
 }
