@@ -176,13 +176,9 @@ Pair * nextMap(HashMap * map) {
         siguiente %= map->capacity;
 
         // Si encuentra un bucket válido, actualiza current y lo retorna
-        if (map->buckets[siguiente] != NULL && map->buckets[siguiente]->key != NULL) {
+        if (map->buckets[siguiente] != NULL) {
             map->current = siguiente;
-            Pair * aux = malloc(sizeof(Pair));
-            aux = map->buckets[siguiente];
-
-            eraseMap(map, aux->key); // Elimina el par actual
-            return aux;
+            return map->buckets[siguiente];
         }
 
         siguiente++;
