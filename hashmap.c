@@ -140,9 +140,14 @@ Pair * firstMap(HashMap * map) {
     while(map->buckets[primero] == NULL || map->buckets[primero]->key == NULL){
         
         primero += 1;
-        if(primero == map->capacity) return NULL;
+        if(primero == map->capacity) 
+        {
+            map->current = -1;
+            return NULL;
+        }
 
     }
+    map->current = primero;
     return map->buckets[primero];
 }
 
