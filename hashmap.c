@@ -170,16 +170,31 @@ Pair * firstMap(HashMap * map) {
 Pair * nextMap(HashMap * map) {
     long siguiente = map->current + 1;
 
-    // Si el índice excede la capacidad, reinicia desde 0
-    if (siguiente >= map->capacity) {
-        siguiente = 0;
+    // Recorre la tabla cíclicamente
+    while (siguiente != map->current) {
+        
+        siguiente %= map->capacity;
+
+        // Si encuentra un bucket válido, actualiza current y lo retorna
+        if (map->buckets[siguiente] != NULL && map->buckets[siguiente]->key != NULL) {
+            map->current = siguiente;
+            Pair * aux = malloc(sizeof(Pair));
+            aux = map->buckets[siguiente];
+
+            eraseMap(map, aux->key); // Elimina el par actual
+            return aux;
+        }
+
+        siguiente++;
+
+        if (siguiente == map->current + 1) {
+            map->current = -1;
+            return NULL;
+        }
     }
 
-    // Actualiza el índice actual
-    map->current = siguiente;
-
-    // Retorna el bucket en el índice siguiente
-    return map->buckets[siguiente];
+    // Si no encuentra un par válido, retorna NULL
+    return NULL;
     //siguiente %= map->capacity;
     /*while(map->buckets[siguiente] == NULL || map->buckets[siguiente]->key == NULL){
         
