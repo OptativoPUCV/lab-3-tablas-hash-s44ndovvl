@@ -153,7 +153,7 @@ Pair * firstMap(HashMap * map) {
 
 Pair * nextMap(HashMap * map) {
     long siguiente = map->current + 1;
-    while(map->buckets[siguiente] == NULL || map->buckets[siguiente]->key == NULL){
+    /*while(map->buckets[siguiente] == NULL || map->buckets[siguiente]->key == NULL){
         
         siguiente += 1;
         siguiente %= map->capacity;
@@ -164,6 +164,6 @@ Pair * nextMap(HashMap * map) {
         }
 
     }
-    map->current = siguiente;
+    map->current = siguiente;*/
     return map->buckets[siguiente];
 }
