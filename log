@@ -214,3 +214,9 @@ ju., 17 de abr. de 2025 20:30:23:
  tests:  13|2
 total_score: 50/70
 fef1880
+ju., 17 de abr. de 2025 20:34:37: 
+ hashmap.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
+ tests:  15|2
+total_score: 50/70
+c8f6590
