@@ -178,6 +178,8 @@ Pair * nextMap(HashMap * map) {
         // Si encuentra un bucket válido, actualiza current y lo retorna
         if (map->buckets[siguiente] != NULL) {
             map->current = siguiente;
+
+            if(map->buckets[siguiente]->key == NULL) return NULL;
             return map->buckets[siguiente];
         }
 
